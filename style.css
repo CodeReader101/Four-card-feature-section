@@ -34,12 +34,13 @@ html{
     font-family: var(--ff-sans);
     font-weight: var(--fw--light);
     line-height: 1.7;
-    color: var(--clr-neutral-400)
+    color: var(--clr-neutral-400);
 }
 
 body{
     margin:0;
     padding-block-end: 5rem;
+
 }
 
 h1,h2,h3{
@@ -77,26 +78,35 @@ header > p{
 
 .layout-grid{
     --gap:2rem;
-    display: grid;
-    gap: var(--gap);
-    grid-auto-columns: 1fr;
+    display: flex;
+    flex-direction: column;
+    gap:var(--gap)
+    
 }
 
-
-@media (min-width:800px) {
+@media(min-width:800px) {
     .layout-grid {
+        display: grid;
         grid-template-areas: 
         '... two   ....'
         'one two   four'
         'one three   four'
         '... three ....';
+
+        grid-auto-columns: 1fr;
+        gap:var(--gap)
+    }  
+}
+
+@media(max-width:800px){
+    .wrapper-narrow{
+        h1{
+            font-size: 2rem;
+        }
     }
 }
 
 
-.layout-grid > * {
-    flex: 1;
-}
 
 
 .card{
